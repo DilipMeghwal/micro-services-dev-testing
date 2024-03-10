@@ -9,3 +9,9 @@ For further reference, please consider the following sections:
 
 ### h2 db
 - http://localhost:8090/h2-console/
+
+### Open API docs
+- http://localhost:8090/v3/api-docs
+- http://localhost:8090/swagger-ui/index.html
+- https://www.baeldung.com/spring-rest-openapi-documentation
+- https://www.baeldung.com/spring-rest-docs-vs-openapi
