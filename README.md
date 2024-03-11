@@ -40,6 +40,7 @@ https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
   port: 8090
 - minikube start --driver=docker
 - macos: eval $(minikube docker-env)
+- win : minikube docker-env
 - docker build -t tag-name .
 - helm install chart-name-any chart-folder-name
   Get the application URL by running these commands:
@@ -48,7 +49,7 @@ https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
 - kubectl get all -A
-- minikube service country-chart-countrycharts --url
+- minikube service country-ms-country-charts --url
 - minikube addons enable ingress
 - values file :
   service:
@@ -79,3 +80,16 @@ https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
 
 
 helm template ./country-chart
+minikube docker-env
+
+## working on windows
+minikube start --driver=docker
+minikube addons enable ingress
+minikube docker-env
+minikube dashboard
+docker build -t country-ms:v0.0.1 .
+docker push dilipmeghwal/country-ms:v0.0.1
+helm install --debug country-ms country-charts
+helm ls
+helm uninstall country-ms
+minikube service country-ms-country-charts --url
