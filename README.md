@@ -24,3 +24,58 @@ For further reference, please consider the following sections:
 - relaunch the cmd
 - type helm -h
 
+- docker image: docker build -t tag-name .
+- docker images
+- docker run -p 8090:8090 image-tag-name
+
+https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
+
+### with helm charts
+- helm create countryCharts
+- tree countryCharts
+- image:
+  repository: country-ms
+- service:
+  type: NodePort
+  port: 8090
+- minikube start --driver=docker
+- macos: eval $(minikube docker-env)
+- docker build -t tag-name .
+- helm install chart-name-any chart-folder-name
+  Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=countrycharts,app.kubernetes.io/instance=country-chart" -o jsonpath="{.items[0].metadata.name}")
+  export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+- kubectl get all -A
+- minikube service country-chart-countrycharts --url
+- minikube addons enable ingress
+- values file :
+  service:
+  type: ClusterIP
+  port: 8090
+
+  ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: countries.com
+      paths:
+        - path: /
+          pathType: Prefix
+
+
+## Error Faced
+- failed to read dockerfile: open Dockerfile: no such file or directory
+    Sol : rename docker file to Dockerfile
+- Unable to resolve the current Docker CLI context "default"
+    sol : docker context use default
+- chart file:
+  version: 0.1.1
+- helm upgrade country-chart countryCharts
+
+
+helm template ./country-chart
