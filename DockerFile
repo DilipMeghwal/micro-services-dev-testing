@@ -1,0 +1,9 @@
+FROM openjdk:17.0.1-jdk-slim
+EXPOSE 8090
+RUN mkdir -p /home/app
+COPY ./target/ms-0.0.1.jar /home/app/
+WORKDIR /home/app
+ENTRYPOINT ["java", "-jar", "ms-0.0.1.jar"]
+
+#ADD ./target/ms-0.0.1.jar ms-0.0.1.jar
+#ENTRYPOINT ["java", "-jar", "ms-0.0.1.jar"]

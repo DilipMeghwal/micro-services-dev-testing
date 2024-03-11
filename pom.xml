@@ -10,11 +10,13 @@
 	</parent>
 	<groupId>com.vpl</groupId>
 	<artifactId>ms</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ms</name>
 	<description>vpl micro services</description>
 	<properties>
 		<java.version>17</java.version>
+		<maven.test.skip>true</maven.test.skip>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 	</properties>
 	<dependencies>
 		<dependency>

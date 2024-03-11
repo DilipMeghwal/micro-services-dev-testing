@@ -15,3 +15,12 @@ For further reference, please consider the following sections:
 - http://localhost:8090/swagger-ui/index.html
 - https://www.baeldung.com/spring-rest-openapi-documentation
 - https://www.baeldung.com/spring-rest-docs-vs-openapi
+
+## CI-CD
+
+### install helm
+- https://github.com/helm/helm/releases
+- set path in env variables after extracting the zip
+- relaunch the cmd
+- type helm -h
+
