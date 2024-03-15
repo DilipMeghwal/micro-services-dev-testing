@@ -31,27 +31,27 @@ For further reference, please consider the following sections:
 https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
 
 ### with helm charts
-- helm create countryCharts
-- tree countryCharts
-- image:
+* helm create countryCharts
+* tree countryCharts
+* image:
   repository: country-ms
-- service:
+* service:
   type: NodePort
   port: 8090
-- minikube start --driver=docker
-- macos: eval $(minikube docker-env)
-- win : minikube docker-env
-- docker build -t tag-name .
-- helm install chart-name-any chart-folder-name
+* minikube start --driver=docker
+* macos: eval $(minikube docker-env)
+* win : minikube docker-env
+* docker build -t tag-name .
+* helm install chart-name-any chart-folder-name
   Get the application URL by running these commands:
   export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=countrycharts,app.kubernetes.io/instance=country-chart" -o jsonpath="{.items[0].metadata.name}")
   export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
-- kubectl get all -A
-- minikube service country-ms-country-charts --url
-- minikube addons enable ingress
-- values file :
+* kubectl get all -A
+* minikube service country-ms-country-charts --url
+* minikube addons enable ingress
+* values file :
   service:
   type: ClusterIP
   port: 8090
@@ -83,13 +83,13 @@ helm template ./country-chart
 minikube docker-env
 
 ## working on windows
-minikube start --driver=docker
-minikube addons enable ingress
-minikube docker-env
-minikube dashboard
-docker build -t country-ms:v0.0.1 .
-docker push dilipmeghwal/country-ms:v0.0.1
-helm install --debug country-ms country-charts
-helm ls
-helm uninstall country-ms
-minikube service country-ms-country-charts --url
+* minikube start --driver=docker
+* minikube addons enable ingress
+* minikube docker-env
+* minikube dashboard
+* docker build -t country-ms:v0.0.1 .
+* docker push dilipmeghwal/country-ms:v0.0.1
+* helm install --debug country-ms country-charts
+* helm ls
+* helm uninstall country-ms
+* minikube service country-ms-country-charts --url
